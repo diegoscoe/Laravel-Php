@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('master')
+
+@section('contect')
     <h1>Contact1</h1>
     <p>{{$name}}</p>
-</body>
-</html>
+
+    @if($name != "diego")
+    Tu nombre no es diego
+    @else
+    <h2>Tu nombre es diego<h2/>
+    @endif
+
+    <ul>
+    @foreach ([1,2,3,4,5] as $item)
+    <li>{{$item}}</li>
+    @endforeach
+</ul>
+@endsection
