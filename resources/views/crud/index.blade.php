@@ -6,8 +6,5 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>crud</h1>
-
-    <h3>{{$name}}</h3>
 </body>
 </html>
