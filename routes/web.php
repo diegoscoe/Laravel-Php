@@ -10,7 +10,10 @@ Route::get('/', function () {
 
 Route::get('test', [PrimerControlador::class, 'index']);
 Route::get('test2', [SegundoControlador::class, 'index']);
+Route::get('otro/{post?}/{otro?}', [PrimerControlador::class, 'otro']); 
 
+
+//Route::resource('post', PrimerControlador::class);
 /*Route::get('/contact', function(){
     //return redirect('/contact2', 303);
     //return redirect()->route ('contact2');
