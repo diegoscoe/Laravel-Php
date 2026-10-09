@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -13,7 +14,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        Post::create(
+
+    $post = Post::find(1);
+    $category = Category::find(1);
+    //$post = Post::find(5)->delete();
+    dd($category->posts[0]->title);
+        /*$post->update(
+            [
+                'title' => 'test title new24q3dwwe',
+                'slug' => 'test slug',
+                'content' => 'test content',
+                'image' => 'test image',
+            ]
+        );*/
+        //dd($post->title);
+
+            /*Post::create(
             [
                 'title' => 'test title',
                 'slug' => 'test slug',
@@ -23,7 +39,8 @@ class PostController extends Controller
                 'posted' => 'not',
                 'image' => 'test image',
             ]
-        );
+        );*/
+
         return 'Index';
     }
 
