@@ -49,7 +49,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('dashboard.post.create');
+        $categories = Category::pluck('title', 'id');
+        return view('dashboard.post.create', compact('categories'));
     }
 
     /**
@@ -57,7 +58,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+    Post::create($request->all());
+    return to_route('post.index');
+            //dd(request()->get('title'));
+            /*[
+                'title' => $request->all()['title'],
+                'slug' => $request->all()['slug'],
+                'content' =>  $request->all()['content'],
+                'category_id' =>  $request->all()['category_id'],
+                'description' =>  $request->all()['description'],
+                'posted' =>  $request->all()['posted'],
+                //'image' =>  $request->all()['image'],
+            ]*/
+        //);
+        //dd($request->all()['title']);
     }
 
     /**

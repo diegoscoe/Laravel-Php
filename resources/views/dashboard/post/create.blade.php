@@ -1,7 +1,9 @@
 @extends('dashboard.master')
 
 @section('content')
-    <form action="" method="post">
+    <form action="{{route('post.store')}}" method="post">
+
+    @csrf
 
     <label for="">Title</label>
     <input type="text" name="title">
@@ -13,7 +15,11 @@
     <textarea name="content"></textarea>
 
     <label for="">Category</label>
-    <select name="category_id" ></select>
+    <select name="category_id" >
+        @foreach($categories as $id => $title)
+        <option value="{{$id}}">{{$title}}</option>
+        @endforeach
+    </select>
 
     <label for="">Description</label>
     <textarea name="description"></textarea>
