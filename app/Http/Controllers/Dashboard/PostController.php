@@ -15,11 +15,15 @@ class PostController extends Controller
      */
     public function index()
     {
+        $posts = Post::paginate(2);
+        return view ('dashboard/post/index', compact('posts'));
 
-    $post = Post::find(1);
-    $category = Category::find(1);
+
+    return 'Index';
+    //$post = Post::find(1);
+    //$category = Category::find(1);
     //$post = Post::find(5)->delete();
-    dd($category->posts[0]->title);
+    //dd($category->posts[0]->title);
         /*$post->update(
             [
                 'title' => 'test title new24q3dwwe',
