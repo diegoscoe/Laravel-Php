@@ -1,30 +1,14 @@
 <?php
 
+use App\Http\Controllers\Dashboard\PostController;
+use App\Http\Controllers\Dashboard\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/test', function() {
-    return "Welcome";
-});*/
-
-/*Route::get('/test', function() {
-    return view('test');
+Route::group(['prefix'=>'dashboard'],function(){
+    Route::resource('post', PostController::class);
+    Route::resource('category', CategoryController::class);
 });
-
-Route::get('/crud', function() {
-    return view('crud/index');
-});*/
-
-Route::get('/test', function() {
-    return view('test');
-});
-
-Route::get('/crud', function() {
-
-$age = 33;
-$data = ['name' => 'Andres', 'age' => $age];
-    return view('crud/index', $data);
-})->name('crud');
