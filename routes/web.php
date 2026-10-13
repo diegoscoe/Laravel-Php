@@ -8,5 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('dashboard/post', PostController::class);
-Route::resource('dashboard/category', CategoryController::class);
+Route::group(['prefix'=>'dashboard'],function(){
+    Route::resource('post', PostController::class);
+    Route::resource('category', CategoryController::class);
+});
