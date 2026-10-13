@@ -1,16 +1,25 @@
 @extends('dashboard.master')
 
 @section('content')
+    <a href="{{route'post.create'}}" target="blank">Create</a>
     <table>
         <thead>
             <tr>
-                Title
-            </tr>
-                <tr>
+                <td>
+                    Id
+                </td>
+                <td>
+                    Title
+                </td>
+                <td>
                 Posted
-            </tr>
-                <tr>
+            </td>
+                <td>
                 Category
+            </td>
+            <td>
+                Options
+                </td>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +33,10 @@
                 </td>
                 <td>
                     {{$p->category->title}}
+                </td>
+                <td>
+                    <a href="{{route('post.edit',$p)}}">Edit</a>
+                    <a href="{{route('post.show',$p)}}">Edit</a>
                 </td>
             </tr>
         </tbody>
