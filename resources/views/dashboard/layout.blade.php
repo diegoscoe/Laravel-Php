@@ -29,7 +29,12 @@
                     {{session('status')}}
                     @endif
 
+                    <div class="container mx-auto">
+                        <div class="card card-white mt-4">
+
+                        </div>
                     @yield('content')
+                    </div>
             @endisset
     
 </body>
