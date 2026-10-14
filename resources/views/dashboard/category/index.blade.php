@@ -1,36 +1,36 @@
 @extends('dashboard.master')
 
 @section('content')
-    <a href="{{route'category.create'}}" target="blank">Create</a>
-    <table>
+    <a class=" my-2 btn  btn-success" href="{{route'category.create'}}" target="blank">Create</a>
+    <table class="table mb-3">
         <thead>
             <tr>
-                <td>
+                <th>
                     Id
-                </td>
-                <td>
+                </th>
+                <th>
                     Title
-                </td>
-            <td>
+                </th>
+            <th>
                 Options
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach($categories as $c)
             <tr>
-                <td>
+                <th>
                     {{$c->title}}
-                </td>
-                <td>
-                    <a href="{{route('categories.show',$c)}}">Show</a>
-                    <a href="{{route('categories.edit',$c)}}">Edit</a>
+                </th>
+                <th>
+                    <a class="btn btn-primary mt-2" href="{{route('categories.show',$c)}}">Show</a>
+                    <a class="btn btn-primary mt-2" href="{{route('categories.edit',$c)}}">Edit</a>
                     <form action="{{route('categories.destroy', $c)}}" method="post">
                         @method('DELETE')
                         @csrf
-                        <button type="submit">Delete</button>
+                        <button class="btn btn-danger mt-2" type="submit">Delete</button>
                     </form>
-                </td>
+                </th>
             </tr>
         </tbody>
     </table>

@@ -1,49 +1,50 @@
 @extends('dashboard.master')
 
 @section('content')
-    <a href="{{route'post.create'}}" target="blank">Create</a>
-    <table>
+    <a class="btn btn-success my-3" href="{{route('post.create')}}" target="blank">Create</a>
+    <table class="table mb-3">
         <thead>
             <tr>
-                <td>
+                <th>
                     Id
-                </td>
-                <td>
+                </th>
+                <th>
                     Title
-                </td>
-                <td>
+                </th>
+                <th>
                 Posted
-            </td>
-                <td>
+            </th>
+                <th>
                 Category
-            </td>
-            <td>
+            </th>
+            <th>
                 Options
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach($posts as $p)
             <tr>
-                <td>
+                <th>
                     {{$p->title}}
-                </td>
-                <td>
+                </th>
+                <th>
                     {{$p->posted}}
-                </td>
-                <td>
+                </th>
+                <th>
                     {{$p->category->title}}
-                </td>
-                <td>
-                    <a href="{{route('post.show',$p)}}">Show</a>
-                    <a href="{{route('post.edit',$p)}}">Edit</a>
-                    <form action="{{route('post.destroy', $p)}}" method="post">
+                </th>
+                <th>
+                    <a class="my-2 btn btn-primary" href="{{route('post.show',$p)}}">Show</a>
+                    <a class="my-2 btn btn-primary" href="{{route('post.edit',$p)}}">Edit</a>
+                    <form class="btn" action="{{route('post.destroy', $p)}}" method="post">
                         @method('DELETE')
                         @csrf
-                        <button type="submit">Delete</button>
+                        <button class="my-2 btn btn-danger" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 

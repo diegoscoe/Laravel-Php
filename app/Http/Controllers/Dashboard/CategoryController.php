@@ -7,6 +7,7 @@ use App\Http\Requests\Category\PutRequest;
 use App\Http\Requests\Category\StoreRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Nette\Utils\Type;
 
 class CategoryController extends Controller
 {
@@ -21,6 +22,8 @@ class CategoryController extends Controller
 
     return 'Index';
     }
+
+
 
     /**
      * Show the form for creating a new resource.
