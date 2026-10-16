@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -17,9 +18,18 @@ class CategoryController extends Controller
         return response()->json(Category::paginate(10));
     }
 
-    /**
-     * Guardar una nueva categoría.
-     */
+    public function all()
+    {
+        return response()->json(Post::get());
+    }
+
+    public function slug($slug)
+    {
+    $post = Post::with("categoty")->where("slug",$slug)->firstOrFail();
+    $post->category;
+    return response()->json($post);
+    }
+
     public function store(StoreCategoryRequest $request)
     {
         $category = Category::create($request->validated());

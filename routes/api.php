@@ -17,7 +17,11 @@ Route::middleware('auth:sactum') -> get('/user', function (Request $request){
 
 
 Route::get('post/all', [PostController::class, 'all']);
+Route::get('post/slug/{slug}', [PostController::class, 'slug']);
 Route::get('category/all', [CategoryController::class, 'all']);
+Route::get('category/slug/{slug}', [CategoryController::class, 'all']);
 Route::get('category/{category}/post', [CategoryController::class, 'posts']);
+
+
 Route::resource('category', CategoryController::class)-> except(["create","edit"]);
 Route::resource('post', PostController::class)-> except(["create","edit"]);
