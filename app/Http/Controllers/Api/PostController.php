@@ -58,4 +58,4 @@ class CategoryController extends Controller
 
         return response()->json(null, 204); // 204 No Content
     }
-}s
+}
